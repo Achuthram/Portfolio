@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <nav>
-      <h2 className="gradient">Achuth</h2>
+      <h2 className="gradient">Achuth Ram</h2>
       <div>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
