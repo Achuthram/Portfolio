@@ -1,10 +1,10 @@
 const profile = {
   name: "Atchyuta Ramayya Illa",
   initials: "AR",
-  role: "Frontend Developer | React Developer",
+  role: "Full Stack Developer",
   tagline: "Building Modern Web Experiences That Matter.",
   description:
-    "I build responsive, interactive web experiences with React, JavaScript, and modern frontend technologies.",
+    "I build responsive web applications with modern frontend experiences, robust backend APIs, and reliable database integration.",
   location: "Hyderabad, Telangana, India",
   email: "achuthram225@gmail.com",
   github: "https://github.com/AtchyutaRamayya",

@@ -1,203 +1,305 @@
+
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
+  GitBranch,
   BriefcaseBusiness,
-  Code2,
-  Globe,
   Sparkles,
-  Terminal,
+  Code2,
+  Layers3,
+  Zap,
 } from "lucide-react";
+
 import profile from "../data/profile";
 
-const technologies = [
-  { name: "React", icon: "⚛", className: "tech-react" },
-  { name: "JavaScript", icon: "JS", className: "tech-js" },
-  { name: "CSS3", icon: "CSS", className: "tech-css" },
-  { name: "HTML5", icon: "HTML", className: "tech-html" },
-];
-
 function Hero() {
-  const shouldReduceMotion = useReducedMotion();
+  const reduceMotion = useReducedMotion();
 
-  const reveal = (delay = 0) => ({
-    initial: shouldReduceMotion ? false : { opacity: 0, y: 24 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.65, delay },
+  const entrance = (delay = 0) => ({
+    initial: {
+      opacity: 0,
+      y: reduceMotion ? 0 : 22,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      duration: reduceMotion ? 0 : 0.7,
+      delay: reduceMotion ? 0 : delay,
+      ease: "easeOut",
+    },
   });
 
   return (
-    <section id="home" className="hero">
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="glow-orb glow-orb-purple hero-orb hero-orb-one" />
-      <div className="glow-orb glow-orb-blue hero-orb hero-orb-two" />
-
-      <div className="container hero-layout">
-        <div className="hero-content">
-          <motion.div className="availability-badge" {...reveal(0.1)}>
-            <span className="status-dot" />
-            <Sparkles size={14} />
-            <span>Frontend Developer · Open to opportunities</span>
-          </motion.div>
-
-          <motion.p className="hero-eyebrow" {...reveal(0.2)}>
-            HELLO, I'M
-          </motion.p>
-
-          <motion.h1 className="hero-title" {...reveal(0.3)}>
-            {profile.name.split(" ").slice(0, 2).join(" ")}
-            <br />
-            <span className="gradient-text">
-              {profile.name.split(" ").slice(2).join(" ")}
-            </span>
-          </motion.h1>
-
-          <motion.h2 className="hero-role" {...reveal(0.4)}>
-            {profile.role}
-          </motion.h2>
-
-          <motion.p className="hero-description" {...reveal(0.5)}>
-            {profile.description}
-          </motion.p>
-
-          <motion.div className="hero-buttons" {...reveal(0.6)}>
-            <a href="#projects" className="primary-button">
-              Explore My Work
-              <ArrowRight size={18} />
-            </a>
-
-            <a href="#contact" className="secondary-button">
-              Let's Talk
-            </a>
-          </motion.div>
-
-          <motion.div className="hero-socials" {...reveal(0.7)}>
-            <span>CONNECT WITH ME</span>
-
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub profile"
+    <section className="hero hero-glass" id="home">
+      <div className="container">
+        <div className="hero-layout">
+          {/* LEFT: INTRODUCTION */}
+          <div className="hero-content">
+            <motion.div
+              className="hero-availability"
+              {...entrance(0.1)}
             >
-              <Globe size={19} />
-            </a>
+              <span className="hero-status-dot" />
+              <span>Available for opportunities</span>
+              <Sparkles size={15} />
+            </motion.div>
 
-            {profile.linkedin && (
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn profile"
-              >
-                <BriefcaseBusiness size={19} />
+            <motion.p
+              className="hero-greeting"
+              {...entrance(0.2)}
+            >
+              Hello, I'm
+            </motion.p>
+
+            <motion.h1
+              className="hero-title"
+              {...entrance(0.3)}
+            >
+              {profile.name}
+            </motion.h1>
+
+            <motion.h2
+              className="hero-role"
+              {...entrance(0.4)}
+            >
+              Full Stack Developer
+              <span className="hero-role-divider"> | </span>
+              <span className="gradient-text">React · Java</span>
+            </motion.h2>
+
+            <motion.p
+              className="hero-description"
+              {...entrance(0.5)}
+            >
+              {profile.description}
+            </motion.p>
+
+            <motion.div
+              className="hero-actions"
+              {...entrance(0.6)}
+            >
+              <a className="primary-button" href="#projects">
+                Explore My Work
+                <ArrowRight size={18} />
               </a>
-            )}
+
+              <a className="secondary-button" href="#contact">
+                Let's Connect
+              </a>
+            </motion.div>
+
+            <motion.div
+              className="hero-socials"
+              {...entrance(0.7)}
+            >
+              {profile.github && (
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
+                  className="hero-social-link"
+                >
+                  <GitBranch size={19} />
+                </a>
+              )}
+
+              {profile.linkedin && (
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                  className="hero-social-link"
+                >
+                  <BriefcaseBusiness size={19} />
+                </a>
+              )}
+
+              <span className="hero-social-caption">
+                Let's build something meaningful.
+              </span>
+            </motion.div>
+          </div>
+
+          {/* RIGHT: FUTURISTIC GLASS PORTRAIT */}
+          <motion.div
+            className="hero-visual"
+            initial={{
+              opacity: 0,
+              x: reduceMotion ? 0 : 28,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.9,
+              ease: "easeOut",
+            }}
+          >
+            <div className="hero-portrait">
+              {/* Ambient glow */}
+              <div className="portrait-glow" />
+              <div className="portrait-glow portrait-glow-secondary" />
+
+              {/* Decorative glass panels */}
+              <motion.div
+                className="portrait-glass-panel portrait-panel-back"
+                animate={
+                  reduceMotion
+                    ? {}
+                    : { y: [0, -7, 0], rotate: [-8, -6, -8] }
+                }
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              <motion.div
+                className="portrait-glass-panel portrait-panel-front"
+                animate={
+                  reduceMotion
+                    ? {}
+                    : { y: [0, 8, 0], rotate: [5, 7, 5] }
+                }
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Rotating neon outline */}
+              <motion.div
+                className="portrait-ring"
+                animate={reduceMotion ? {} : { rotate: 360 }}
+                transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Main portrait */}
+              <motion.div
+                className="portrait-image-wrap"
+                animate={reduceMotion ? {} : { y: [0, -8, 0] }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <img
+                  src="/images/profile.png"
+                  alt="Atchyuta Ramayya Illa — Frontend Developer"
+                  className="portrait-image"
+                  fetchPriority="high"
+                />
+
+                <div className="portrait-image-shade" />
+
+                <div className="portrait-image-caption">
+                  <span className="portrait-caption-dot" />
+                  <span>Building digital experiences</span>
+                </div>
+              </motion.div>
+
+              {/* Floating React card */}
+              <motion.div
+                className="portrait-floating-card portrait-card-react"
+                animate={
+                  reduceMotion
+                    ? {}
+                    : { y: [0, -9, 0], rotate: [0, 1.5, 0] }
+                }
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <span className="portrait-card-icon portrait-icon-cyan">
+                  <Code2 size={20} />
+                </span>
+                <span className="portrait-card-text">
+                  <strong>React.js</strong>
+                  <small>Frontend UI</small>
+                </span>
+              </motion.div>
+
+              {/* Floating clean-code card */}
+              <motion.div
+                className="portrait-floating-card portrait-card-code"
+                animate={
+                  reduceMotion
+                    ? {}
+                    : { y: [0, 7, 0], rotate: [0, -1.5, 0] }
+                }
+                transition={{
+                  duration: 4.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <span className="portrait-card-icon portrait-icon-purple">
+                  <Layers3 size={19} />
+                </span>
+                <span className="portrait-card-text">
+                  <strong>Java + Spring Boot</strong>
+                  <small>Backend Development</small>
+                </span>
+              </motion.div>
+
+              {/* Performance card */}
+              <motion.div
+                className="portrait-floating-card portrait-card-performance"
+                animate={
+                  reduceMotion ? {} : { y: [0, -6, 0] }
+                }
+                transition={{
+                  duration: 3.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Zap size={18} className="portrait-zap" />
+                <span className="portrait-card-text">
+                  <strong>MySQL + REST APIs</strong>
+                  <small>Database & API Integration</small>
+                </span>
+              </motion.div>
+
+              {/* Decorative particles */}
+              <span className="portrait-particle portrait-particle-one" />
+              <span className="portrait-particle portrait-particle-two" />
+              <span className="portrait-particle portrait-particle-three" />
+            </div>
           </motion.div>
         </div>
 
-        <motion.div
-          className="hero-visual"
-          initial={
-            shouldReduceMotion ? false : { opacity: 0, scale: 0.92, x: 25 }
-          }
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.3 }}
+        {/* Scroll indicator */}  
+        <motion.a
+          href="#about"
+          className="hero-scroll-indicator"
+          aria-label="Scroll to About section"
+          animate={reduceMotion ? {} : { y: [0, 5, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         >
-          <div className="visual-glow" />
-
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-
-          <div className="code-window glass-card">
-            <div className="window-header">
-              <div className="window-dots">
-                <span />
-                <span />
-                <span />
-              </div>
-              <span className="window-filename">
-                developer.jsx
-              </span>
-              <Terminal size={16} />
-            </div>
-
-            <div className="code-content">
-              <p>
-                <span className="code-muted">01</span>{" "}
-                <span className="code-purple">const</span>{" "}
-                developer = {"{"}
-              </p>
-              <p>
-                <span className="code-muted">02</span>{" "}
-                &nbsp;name: <span className="code-green">"AR"</span>,
-              </p>
-              <p>
-                <span className="code-muted">03</span>{" "}
-                &nbsp;role: <span className="code-green">"React Dev"</span>,
-              </p>
-              <p>
-                <span className="code-muted">04</span>{" "}
-                &nbsp;creative: <span className="code-blue">true</span>,
-              </p>
-              <p>
-                <span className="code-muted">05</span>{" "}
-                &nbsp;building: <span className="code-green">"The Future"</span>
-              </p>
-              <p>
-                <span className="code-muted">06</span> {"}"};
-              </p>
-              <p className="code-comment">
-                <span className="code-muted">07</span>{" "}
-                // Turning ideas into interfaces.
-              </p>
-            </div>
-
-            <div className="window-footer">
-              <span>
-                <span className="status-dot" /> Available for collaboration
-              </span>
-              <Code2 size={16} />
-            </div>
-          </div>
-
-          {technologies.map((technology, index) => (
-            <motion.div
-              key={technology.name}
-              className={`floating-tech ${technology.className}`}
-              animate={
-                shouldReduceMotion
-                  ? {}
-                  : { y: [0, -10, 0], rotate: [0, 2, 0] }
-              }
-              transition={{
-                duration: 3 + index * 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.2,
-              }}
-            >
-              <span>{technology.icon}</span>
-              <small>{technology.name}</small>
-            </motion.div>
-          ))}
-
-          <div className="visual-label">
-            <span className="visual-label-icon">
-              <Sparkles size={16} />
-            </span>
-            <span>
-              <strong>Creative by design</strong>
-              <small>Built with curiosity</small>
-            </span>
-          </div>
-        </motion.div>
+          <span>Scroll to explore</span>
+          <ArrowDown size={16} />
+        </motion.a>
       </div>
-
-      <a className="scroll-indicator" href="#about">
-        <span>SCROLL TO EXPLORE</span>
-        <ArrowDown size={15} />
-      </a>
     </section>
   );
 }

@@ -18,16 +18,22 @@ const highlights = [
   },
   {
     icon: Layers3,
-    title: "Reusable Components",
+    title: "Backend Development",
     description:
-      "Organizing UI into maintainable components with clear responsibilities.",
+      "Developing backend functionality and REST APIs using Java and Spring Boot.",
   },
   {
     icon: Rocket,
-    title: "Full-Stack Learning",
+    title: "Database Management",
     description:
-      "Expanding my skills with Java, Spring Boot, and MySQL.",
+      "Working with SQL and MySQL for application data management.",
   },
+  {
+    icon: Rocket,
+    title: "Full Stack Development",
+    description:
+      "Connecting frontend, backend, and databases to build complete web applications.",
+  }
 ];
 
 function About() {
@@ -43,13 +49,12 @@ function About() {
 
           <h2 className="section-title">
             Turning ideas into{" "}
-            <span className="gradient-text">digital experiences.</span>
+            <span className="gradient-text">full stack web experiences.</span>
           </h2>
 
           <p className="about-intro">
-            I'm {profile.name}, a frontend developer interested in building
-            modern web applications that combine thoughtful design,
-            responsive layouts, and maintainable code.
+            I'm {profile.name},
+            a Full Stack Developer skilled in React, Java, Spring Boot, and SQL. I enjoy building responsive web applications, developing backend APIs, and integrating databases to create reliable, user-friendly digital experiences.
           </p>
         </div>
 

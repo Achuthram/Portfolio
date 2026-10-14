@@ -18,7 +18,7 @@ const skillGroups = [
   {
     title: "Backend Development",
     icon: Server,
-    skills: ["Java", "Spring Boot", "REST APIs"],
+    skills: ["Java","Python", "Spring Boot", "REST APIs"],
   },
   {
     title: "Database",
@@ -67,8 +67,8 @@ function Skills() {
           </h2>
 
           <p>
-            The technologies I use to build interfaces and develop my
-            full-stack skills.
+            My technical toolkit for building responsive web applications,
+            developing backend services, and managing application data.
           </p>
         </div>
 

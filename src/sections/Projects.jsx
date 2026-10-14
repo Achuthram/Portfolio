@@ -29,8 +29,7 @@ function Projects() {
             </h2>
 
             <p>
-              A selection of projects showcasing my frontend development
-              work and ongoing learning.
+              We’ll keep your existing project cards, styling, animations, and modal UI unchanged. We’ll focus on the project descriptions so recruiters can quickly understand what you built and which technologies you used.
             </p>
           </div>
 
