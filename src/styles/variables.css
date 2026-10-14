@@ -1,0 +1,60 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #0b0b12;
+  --bg-secondary: #12121f;
+  --bg-card: rgba(255, 255, 255, 0.045);
+
+  /* Accent colors */
+  --color-purple: #8b5cf6;
+  --color-blue: #38bdf8;
+  --color-pink: #f472b6;
+
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #a1a1aa;
+
+  /* Borders and effects */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(18, 18, 31, 0.72);
+  --shadow-purple: 0 0 35px rgba(139, 92, 246, 0.18);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-purple),
+    var(--color-blue)
+  );
+
+  --gradient-text: linear-gradient(
+    90deg,
+    #a78bfa,
+    #38bdf8,
+    #f472b6
+  );
+
+  /* Layout */
+  --container-width: 1200px;
+  --navbar-height: 80px;
+  --section-spacing: 110px;
+
+  /* Corners */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  /* Animation */
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.4s ease;
+}
+
+/* Optional light theme foundation */
+[data-theme="light"] {
+  --bg-primary: #f8f7ff;
+  --bg-secondary: #eeecf8;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-primary: #171329;
+  --text-secondary: #625e72;
+  --border-color: rgba(40, 30, 70, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --shadow-purple: 0 0 30px rgba(139, 92, 246, 0.12);
+}

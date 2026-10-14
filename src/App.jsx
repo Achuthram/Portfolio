@@ -1,33 +1,33 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Stats from "./components/Stats";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Cursor from "./components/Cursor";
 
-import useReveal from "./hooks/useReveal";
-import useActiveNav from "./hooks/useActiveNav";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Skills from "./sections/Skills";
+import Projects from "./sections/Projects";
+import Experience from "./sections/Experience";
+import Education from "./sections/Education";
+import Contact from "./sections/Contact";
 
 function App() {
-  useReveal();
-  useActiveNav();
-
   return (
     <>
-      <Cursor />
       <Navbar />
-      <Hero />
-      <About />
-      <Stats />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+      </main>
+
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
